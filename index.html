@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main id="app">
+        <p>
+            <h2>Modèles</h2>
+            <!-- {{ models }} -->
+            <select @change="$event => test($event.target.value)" name="" id="">
+                <option :value="model" v-for="model in models" value="">{{ model.name }}</option>
+            </select>
+            <table>
+                <tr>
+                    <th>Nom</th>
+                    <th>Famille d'aéronef</th>
+                    <th>Type d'aéronef</th>
+                    <th>Nombre de moteurs</th>
+                    <th>Famille de moteur</th>
+                </tr>
+                <tr v-for="model in models">
+                    <td>{{ model.name }}</td>
+                    <td>{{ model.aircraftFamily }}</td>
+                    <td>{{ typeModel(model.aircraftType) }}</td>
+                    <td>{{ model.engineCount }}</td>
+                    <td>{{ model.engineFamily }}</td>
+                </tr>
+            </table>
+        </p>
+        <!-- <p>
+            <h2>Types</h2>
+            {{ types }}
+            <table>
+                <tr>
+                    <th>Nom</th>
+                    <th>Pays</th>
+                </tr>
+                <tr v-for="manufacturer in manufacturers">
+                    <td>{{ manufacturer.name }}</td>
+                    <td>{{ manufacturer.country }}</td>
+                </tr>
+            </table>
+        </p> -->
+        <!-- <p>
+            <h2>Moteurs</h2>
+            {{ engines }}
+            <table>
+                <tr>
+                    <th>Nom</th>
+                    <th>Pays</th>
+                </tr>
+                <tr v-for="manufacturer in manufacturers">
+                    <td>{{ manufacturer.name }}</td>
+                    <td>{{ manufacturer.country }}</td>
+                </tr>
+            </table>
+        </p> -->
+        <p>
+            <h2>Constructeurs</h2>
+            <input type="text" v-model="manufacturerName"/>
+            <table>
+                <tr>
+                    <th>Nom</th>
+                    <th>Pays</th>
+                </tr>
+                <tr v-for="manufacturer in filteredManufacturers">
+                    <td>{{ manufacturer.name }}</td>
+                    <td>{{ manufacturer.country }}</td>
+                </tr>
+            </table>
+        </p>
+        <!-- <p>
+            <h2>Propriétés</h2>
+            {{ properties }}
+            <table>
+                <tr>
+                    <th>Nom</th>
+                    <th>Pays</th>
+                </tr>
+                <tr v-for="manufacturer in manufacturers">
+                    <td>{{ manufacturer.name }}</td>
+                    <td>{{ manufacturer.country }}</td>
+                </tr>
+            </table>
+        </p> -->
+    </main>
+    <script src="vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
