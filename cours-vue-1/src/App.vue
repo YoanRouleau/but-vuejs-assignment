@@ -22,7 +22,13 @@
 
 <style scoped>
   h1{
-    -webkit-text-stroke: 1px #000;
-    color: #fff;
+    -webkit-text-stroke: 3px #fff;
+    font-size: 60px;
+    margin-bottom: 10px;
+    font-weight: 900;
+    text-align: center;
+    padding: 20px;
+    background-color: #000;
+    color: #000;
   }
 </style>
