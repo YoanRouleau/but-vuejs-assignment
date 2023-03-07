@@ -8,12 +8,8 @@
 </head>
 <body>
     <main id="app">
-        <p>
+        <!-- <p>
             <h2>Modèles</h2>
-            <!-- {{ models }} -->
-            <select @change="$event => test($event.target.value)" name="" id="">
-                <option :value="model" v-for="model in models" value="">{{ model.name }}</option>
-            </select>
             <table>
                 <tr>
                     <th>Nom</th>
@@ -30,7 +26,7 @@
                     <td>{{ model.engineFamily }}</td>
                 </tr>
             </table>
-        </p>
+        </p> -->
         <!-- <p>
             <h2>Types</h2>
             {{ types }}
@@ -61,7 +57,7 @@
         </p> -->
         <p>
             <h2>Constructeurs</h2>
-            <input type="text" v-model="manufacturerName"/>
+            Nom du constructeur : <input type="text" v-model="manufacturerName"/>
             <table>
                 <tr>
                     <th>Nom</th>

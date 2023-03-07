@@ -3,7 +3,6 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            welcome: "Salut sur VueJS ducon !",
             models: [],
             types: [],
             engines: [],
@@ -19,7 +18,8 @@ createApp({
     },
     methods: {
         typeModel(idType) {
-            return this.types.find(t => t.id == idType)
+            var result = this.types.find(t => t.id == idType)
+            return result
         }
     },
     mounted() {
