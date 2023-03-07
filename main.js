@@ -8,7 +8,8 @@ createApp({
             engines: [],
             manufacturers: [],
             properties: [],
-            manufacturerName: ""
+            manufacturerName: "",
+            fetchStatus: false
         }
     },
     computed: {
@@ -23,6 +24,7 @@ createApp({
         }
     },
     mounted() {
+        this.fetchStatus = true
         fetch("data/aircraft-models.json")
             .then(res => res.json())
             .then(data => { this.models = data })
@@ -38,5 +40,6 @@ createApp({
         fetch("data/properties.json")
             .then(res => res.json())
             .then(data => { this.properties = data })
+        this.fetchStatus = false
     }
 }).mount('#app')
