@@ -1,24 +1,31 @@
 <script setup>
-
+import { ref } from 'vue';
 const emit = defineEmits(['closeMeme'])
 
 const props = defineProps({
-    passedMemeId : Object
+    passedMeme : Object
 })
 
+let texte1 = ref('')
+let texte2 = ref('')
 
 </script>
 
 
 <template>
     
-    <div class="edit-modal" v-if="props.passedMemeId !== null">
+    <div class="edit-modal" v-if="props.passedMeme !== null">
         <form class="edit-modal-form">
             <div @click="() => emit('closeMeme')" class="close-modal">X</div>
             <label for="">Texte 1</label>
-            <input type="text" id="text1">
+            <input v-model="texte1" type="text" id="text1">
             <label for="">Texte 2</label>
-            <input type="text" id="text2">
+            <input v-model="texte2" type="text" id="text2">
+            <div class="edit-image">
+                <p>{{ texte1 }}</p>
+                <img :src="props.passedMeme.url">
+                <p>{{ texte2 }}</p>
+            </div>
             <button type="submit">Modifier</button>
         </form>
     </div>
@@ -60,6 +67,33 @@ const props = defineProps({
         display: flex;
         flex-direction: column;
         background-color: #fff;
+    }
+
+    form .edit-image{
+        position: relative;
+        width: 100%;
+        margin: 10px 0;        
+    }
+
+    form .edit-image img{
+        width: 100%;
+        height: auto;
+    }
+
+    form .edit-image p{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+        font-size: 22px;
+        width: 100%;
+        text-align: center;
+    }
+    form .edit-image p:nth-child(1){
+        top: 5%;
+    }
+    form .edit-image p:nth-child(3){
+        bottom: 5%;
     }
 
     form label{
