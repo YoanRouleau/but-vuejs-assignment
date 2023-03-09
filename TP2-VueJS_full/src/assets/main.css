@@ -1,0 +1,29 @@
+* {
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    padding: 20px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+nav {
+    margin-left: 50px;
+    display: inline;
+}
+
+.navlinks {
+    margin-right: 5px;
+    background-color: orange;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+#maincontent {
+    margin-top: 20px;
+}
