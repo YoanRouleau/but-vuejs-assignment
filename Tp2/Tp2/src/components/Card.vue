@@ -47,12 +47,15 @@ display: inline-block;
 border-radius: 25px;
   border: 2px solid #73AD21;
   padding: 20px;
-    width: 30%;
-  height: 30%;
+    width: 25%;
+  height: 25%;
   margin: 10px;
+      transition: 1s all ease;
 }
 #oui:hover{
-
+    width: 28%;
+    height: 28%;
+    transition: 1s all ease;
 }
 img{
     display: block;

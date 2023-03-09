@@ -13,6 +13,7 @@ import HomePage from './views/HomePage.vue'
       <nav>
         <RouterLink to="/about">About</RouterLink>
       </nav>
+      <RouterLink to="/addCard"> New Meme</RouterLink>
     </div>
   </header>
 
