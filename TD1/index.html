@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TD1 - light</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	
+	<main id="app">
+		<header>
+			<p id="recherche">Recherche : <input v-model="search" type="text" placeholder="Rechercher" /></p>
+			<div id="titlepage">
+				<h1 id="titlefirstpart">Top</h1>
+				<h1 id="titlesecondpart">160</h1>
+			</div>
+		</header>
+		<article>
+			<!--<p>{{ chut }}</p>-->
+			<div v-if="chut" class="act-container"
+			v-for="act in filteredNames">
+				<div class="personnalinfo">
+					<!--<p>{{act.data.Position}}</p>-->
+					<div><p class="name">{{act.data.Name}}</p></div>
+					<div><p class="birth">{{act.data.BirthDate}}</p></div>
+					<div><p class="known"> She's known for : {{act.data.KnownFor}}</p></div>
+				</div>
+				<div class="divimage">
+					<img :src="act.url" alt="No image" class="uneimage">
+				</div>
+			</div>
+		</article>
+	</main>
+
+
+
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+	<script type="text/javascript" src="main.js" defer></script>
+</body>
+</html>
