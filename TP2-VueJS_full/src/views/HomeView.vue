@@ -6,7 +6,8 @@ export default {
   data() {
     return {
       data,
-      memeId: null
+      meme: null,
+      click: false
     }
   },
   components: {
@@ -14,8 +15,15 @@ export default {
     EditModal
   },
   methods: {
-    editMemeCallback(id) {
-      this.memeId = id
+    editMemeCallback(cardMeme) {
+      this.meme = cardMeme
+      this.click = true
+    },
+    closeEditModal(saving) {
+      console.log(saving)
+      if (!saving) {
+        this.click = false
+      }
     }
   }
 }
@@ -25,9 +33,9 @@ export default {
   <main>
     <h2>Page d'acceuil</h2>
     <div id="cards">
-      <Card v-for="meme in data.memes" :meme="meme" @edit-meme="editMemeCallback(meme.id)"/>
+      <Card v-for="meme in data.memes" :meme="meme" @edit-meme="editMemeCallback(meme)"/>
     </div>
-    <EditModal :memeid="memeId"/>
+    <EditModal v-if="click" :meme="meme" @close-edit-modal="closeEditModal"/>
   </main>
 </template>
 
