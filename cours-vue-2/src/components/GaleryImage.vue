@@ -25,6 +25,7 @@ const getData = async () => {
     const res = await fetch("https://api.imgflip.com/get_memes");
         const finalRes = await res.json();
         dataMeme.value = finalRes.data.memes;
+        console.log(dataMeme);
 }
 
 const editModalCallback = (item) => {
