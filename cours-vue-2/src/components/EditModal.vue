@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 const emit = defineEmits(['closeMeme'])
 
 const props = defineProps({
@@ -8,6 +8,36 @@ const props = defineProps({
 
 let texte1 = ref('')
 let texte2 = ref('')
+const actualMeme = ref(null)
+
+const editMeme = async ($event) => {
+    $event.preventDefault()
+    actualMeme.value = props.passedMeme
+
+    const options = {
+                method: 'POST',
+                headers: {
+                    cookie: 'claim_key=M09Hir332NYnO9N0RfJLn09eIhB6bhgl',
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    username: "YoanRouleau",
+                    password: "editingmemes",
+                    text0: texte1.value || ' ',
+                    text1: texte2.value || ' ',
+                    template_id: actualMeme.value.id
+                })
+            }
+            const res = await fetch('https://api.imgflip.com/caption_image', options);
+            const data = await res.json()
+            modifActualMeme(data.data.url)
+}
+
+const modifActualMeme =  (url) => {
+    actualMeme.value.url = url
+    texte1.value = ""
+    texte2.value = ""
+}
 
 </script>
 
@@ -26,7 +56,7 @@ let texte2 = ref('')
                 <img :src="props.passedMeme.url">
                 <p>{{ texte2 }}</p>
             </div>
-            <button type="submit">Modifier</button>
+            <button @click="($event) => editMeme($event)" type="submit">Modifier</button>
         </form>
     </div>
 </template>
