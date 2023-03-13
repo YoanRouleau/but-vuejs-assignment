@@ -14,14 +14,11 @@ export default {
   methods: {
   },
   mounted() {
-      this.memes = fetch( "https://api.imgflip.com/get_memes" )
-                    .then(response => response.json())
-                    .then(data => {
-                        return data.memes
-                    })
-                    .catch(error => {
-                        console.log(error)
-                    })
+      fetch("https://api.imgflip.com/get_memes" )
+                .then(response => response.json())
+                .then( ({data}) => {
+                    this.memes = data.memes
+                })
     console.log(this.memes)
   }
 
@@ -31,9 +28,8 @@ export default {
 <template>
     <main>
         <h2>Ajout de meme</h2>
-        <p v-for="meme in memes">{{meme.name}}</p>
-        <select name="" id="">
-            <option value=""></option>
+        <select>
+            <option v-for="meme in memes" :value="meme.id">{{meme.name}}</option>
         </select>
     </main>
 </template>
