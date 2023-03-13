@@ -11,21 +11,21 @@ export default {
   },
   methods: {
     closeEdit() {
-      this.$emit("closeEditModal", false)
+      this.$emit("closeEditModal", false, this.meme)
     },
     saveEdit() {
-      this.$emit("closeEditModal", true)
+      this.$emit("closeEditModal", true, this.meme)
     }
   }
 }
 </script>
 
 <template>
-  <main @click="closeEdit">
+  <main>
     <div id="editCard">
       <div id="name">
         <p>Nom :</p>
-        <input type="text" :value="meme.name">
+        <input type="text" v-model="meme.name">
       </div>
       <img :src="meme.imgSrc"/>
       <div id="buttons">

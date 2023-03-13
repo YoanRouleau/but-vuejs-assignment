@@ -19,11 +19,10 @@ export default {
       this.meme = cardMeme
       this.click = true
     },
-    closeEditModal(saving) {
+    closeEditModal(saving, meme) {
+      console.log(meme)
       console.log(saving)
-      if (!saving) {
-        this.click = false
-      }
+      this.click = false
     }
   }
 }
