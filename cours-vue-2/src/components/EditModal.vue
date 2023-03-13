@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 const emit = defineEmits(['closeMeme'])
 
 const props = defineProps({
@@ -47,9 +47,9 @@ const modifActualMeme =  (url) => {
     <div class="edit-modal" v-if="props.passedMeme !== null">
         <form class="edit-modal-form">
             <div @click="() => emit('closeMeme')" class="close-modal">X</div>
-            <label for="">Texte 1</label>
+            <label for="text1">Texte 1</label>
             <input v-model="texte1" type="text" id="text1">
-            <label for="">Texte 2</label>
+            <label for="text1">Texte 2</label>
             <input v-model="texte2" type="text" id="text2">
             <div class="edit-image">
                 <p>{{ texte1 }}</p>
